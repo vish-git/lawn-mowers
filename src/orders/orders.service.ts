@@ -28,4 +28,18 @@ export class OrdersService {
     let userObject = this.jwtService.decode(token[1]);
     return userObject['email'];
   }
+  // Delete a customer
+  async deleteOrder(orderID): Promise<any> {
+    const deletedOrder = await this.orderModel.findByIdAndRemove(orderID);
+    return deletedOrder;
+  }
+
+  async updateorder(orderID, orderDTO: OrderDTO): Promise<Order> {
+    const updatedOrder = await this.orderModel.findByIdAndUpdate(
+      orderID,
+      orderDTO,
+      { new: true },
+    );
+    return updatedOrder;
+  }
 }

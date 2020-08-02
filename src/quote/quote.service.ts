@@ -10,8 +10,8 @@ export class QuoteService {
 
   calculatePrice(area) {
     const pricePerSquareMetres = 1;
-    const regularPrice = area * 1;
-    let priceDetails: any = { price: 0, discountApplied: '' };
+    const regularPrice = area * pricePerSquareMetres;
+    let priceDetails: any = { price: 0, discountApplied: '', area: area };
 
     switch (true) {
       case area >= 15 && area < 25:

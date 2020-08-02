@@ -5,4 +5,5 @@ export const OrderSchema = new mongoose.Schema({
   area: Number,
   price: Number,
   created_at: { type: Date, default: Date.now },
+  discount_applied: String,
 });

@@ -1,3 +1,4 @@
+import { JwtService } from '@nestjs/jwt';
 import { OrderDTO } from './dto/order.dto';
 import { OrdersService } from './orders.service';
 import { Controller } from '@nestjs/common';
@@ -6,6 +7,7 @@ import {
   Res,
   HttpStatus,
   Post,
+  Request,
   Body,
   Put,
   Query,
@@ -25,5 +27,13 @@ export class OrdersController {
       message: 'order has been created successfully',
       order,
     });
+  }
+
+  @Get()
+  async getOrders(@Request() req, @Res() res) {
+    const orders = await this.ordersService.getOrders(req);
+    return res.status(HttpStatus.OK).json(orders);
+
+    //return this.ordersService.getOrders(area);
   }
 }

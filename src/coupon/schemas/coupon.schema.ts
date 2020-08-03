@@ -10,7 +10,6 @@ export const CouponSchema = new mongoose.Schema({
 });
 
 CouponSchema.pre('save', function(next) {
-  console.log('inside coupon schema');
   let currentDate = new Date();
   let couponCode: String = '';
   this.updated_at = currentDate;

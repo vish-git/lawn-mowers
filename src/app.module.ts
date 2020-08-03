@@ -10,15 +10,14 @@ import { AuthModule } from './auth/auth.module';
 import { OrdersModule } from './orders/orders.module';
 import { QuoteModule } from './quote/quote.module';
 import { CouponModule } from './coupon/coupon.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://vish:vish@cluster0.u78lr.mongodb.net/customer-app?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-      },
-    ),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+    }),
     CustomerModule,
     UsersModule,
     AuthModule,

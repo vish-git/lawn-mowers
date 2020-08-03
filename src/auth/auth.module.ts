@@ -1,3 +1,4 @@
+import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
@@ -9,9 +10,10 @@ import { UsersService } from 'src/users/users.service';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     PassportModule.register({ defaultStrategy: 'jwt', session: false }),
     JwtModule.register({
-      secretOrPrivateKey: 'thisismykickasssecretthatiwilltotallychangelater',
+      secretOrPrivateKey: process.env.SECRET_KEY,
       signOptions: {
         expiresIn: 3600,
       },

@@ -1,6 +1,6 @@
 import { OrderDTO } from './dto/order.dto';
 import { OrdersService } from './orders.service';
-import { Controller } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import {
   Get,
   Res,
@@ -14,6 +14,7 @@ import {
   Delete,
   Param,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('orders')
 export class OrdersController {

@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { OrdersModule } from './orders/orders.module';
 import { QuoteModule } from './quote/quote.module';
+import { CouponModule } from './coupon/coupon.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { QuoteModule } from './quote/quote.module';
     AuthModule,
     OrdersModule,
     QuoteModule,
+    CouponModule,
   ],
   controllers: [AppController],
   providers: [AppService],

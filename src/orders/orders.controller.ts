@@ -21,6 +21,7 @@ export class OrdersController {
   constructor(private ordersService: OrdersService) {}
 
   @Post('/create')
+  @UseGuards(AuthGuard('jwt'))
   async addCustomer(@Res() res, @Body() orderDTO: OrderDTO) {
     const order = await this.ordersService.addOrder(orderDTO);
     return res.status(HttpStatus.OK).json({
@@ -30,6 +31,7 @@ export class OrdersController {
   }
 
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   async getOrders(@Request() req, @Res() res) {
     const orders = await this.ordersService.getOrders(req);
     return res.status(HttpStatus.OK).json(orders);
@@ -38,6 +40,7 @@ export class OrdersController {
   }
 
   @Put('/update')
+  @UseGuards(AuthGuard('jwt'))
   async updateCustomer(
     @Res() res,
     @Query('orderID') orderID,
@@ -52,6 +55,7 @@ export class OrdersController {
   }
 
   @Delete('/delete')
+  @UseGuards(AuthGuard('jwt'))
   async deleteOrder(@Res() res, @Query('orderID') orderID) {
     const order = await this.ordersService.deleteOrder(orderID);
     if (!order) throw new NotFoundException('order does not exist');

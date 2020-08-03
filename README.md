@@ -37,7 +37,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 
-Output : 
+## Output : 
 Go to http://localhost:3000/api to get the list of api and start using it.
 
 Protected routes : http://localhost:3000/orders (GET,POST,PUT,DELETE) are protected which uses JWT token for authorization

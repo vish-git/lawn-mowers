@@ -10,6 +10,12 @@ This is a server app which provide rest api for front end consumption
 API Documentation : https://lawn-mowers.herokuapp.com/api
 Server URL for endpoint access : https://lawn-mowers.herokuapp.com
 ```
+## Sample Flow
+```bash
+Register customer : https://lawn-mowers.herokuapp.com/customer/create
+Login : https://lawn-mowers.herokuapp.com/auth
+Access protected routes using token
+```
 
 ## Installation
 
